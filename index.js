@@ -24,15 +24,28 @@ function Alunos(){
   return alunos;
 }
 
-// Requerir o modulo do MYSQL no projeto
-var bancoAlunos = require('mysql2');
+var mysql = require("mysql");
+var con = mysql.createConnection({
+host: "localhost", user: "root", 
+password: "150903", 
+database: "desafiolt"
+});
 
-// criando a conexão com o banco de dados
-var connection = bancoAlunos.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'cadastro'
+con.connect (function (err) {
+    if (err) throw err;
+    console.log("Conectado!");
+});
+
+
+con.connect (function (err) {
+    if (err) throw err;
+    console. log ("Conectado!");
+    var sal = "SELECT * FROM Alunos";
+    con.query(sql, (err, result) =>
+    {
+    if (err) throw err; console. log(result);
+
+    });
 });
 
 
