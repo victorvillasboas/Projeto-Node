@@ -24,7 +24,8 @@ function Alunos(){
   return alunos;
 }
 
-var mysql = require("mysql");
+//Criando conexão com o banco de dados
+var mysql = require("mysql2");
 var con = mysql.createConnection({
 host: "localhost", user: "root", 
 password: "150903", 
@@ -110,29 +111,3 @@ console.log("Falha ao se conectar: "+erro)
 }) 
 */
 
-
-//criando conexao com banco
-
-var mysql = require("mysql");
-var con = mysql.createConnection({
-host: "localhost", user: "root", 
-password: "150903", 
-database: "desafiolt"
-});
-
-con.connect (function (err) {
-    if (err) throw err;
-    console.log("Conectado!");
-});
-
-
-con.connect (function (err) {
-    if (err) throw err;
-    console. log ("Conectado!");
-    var sal = "SELECT * FROM Alunos";
-    con.query(sql, (err, result) =>
-    {
-    if (err) throw err; console. log(result);
-
-    });
-});
